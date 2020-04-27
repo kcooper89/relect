@@ -1,0 +1,32 @@
+#jumbotron {
+    height: 75px;
+    font-size: 50px;
+    background-color: blue;
+    color: white;
+}
+#container-1{
+    float: left;
+}
+#card-1 {
+    background-color: whitesmoke;
+    margin-top: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+#city-buttons {
+    color: white;
+    padding: 15px;
+}
+
+#card-body-1 {
+    font-weight: bold;
+}
+
+#card-2 {
+    background-color: whitesmoke;
+    margin-top: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
