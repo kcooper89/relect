@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <title>Weather Dashboard</title>
 
@@ -9,20 +10,23 @@
     <link href="https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 
 <header>
+
     <div class="jumbotron-fluid" id="jumbotron">
         <div class="container">
           <h1 class="display-4 text-center align-middle">Weather Dashboard</h1>
         </div>
       </div>
+
 </header>
 
 <body>
+    
     <div class="container">
         <div class="row">
-
             <div class="col-xs-12 col-lg-3">
                 <div class="card" id="card-1">
                     <div class="card-body" id="card-body-1">
@@ -33,7 +37,6 @@
                         </form>
 
                     </div>
-                
 
                     <hr>
 
@@ -56,19 +59,24 @@
             <div class="col-xs-12 col-lg-9">
                 <div class="card" id="card-2">
                     <div class="card-body text-center" id="card-body-2">
+                        <h2>Current Weather:</h2>
                         <p>City: <span id="city"></span></p>
                         <img id="weather_image" src="">
                         <p>Main Weather: <span id="main_weather"></span></p>
                         <p>Temperature: <span id="temperature"></span></p>
                         <p>Description: <span id="description_weather"></span></p>
                         <p>Pressure: <span id="pressure"></span></p>
-                        <p>Humidity: <span id="humidity"></span></p>
+                        <p>UV Index: <span id="UVindex"></span></p>
                     </div>
                 </div>
 
 
                 <!-- Forecast goes here -->
-                <div id="forecast" class="row"></div>
+                <div class="card" id="card-3">
+                    <div class="card-body text-center" id="card-body-2">
+                        <div id="forecast" class="form-group row"></div>
+                    </div>
+                </div>
 
             </div>
 
@@ -76,10 +84,10 @@
    
     </div>
 
-    <div class="container" id="container-2">
+    <div class="container" id="container-4">
         <div class="row">
             <div class="col-md-12">
-                <div class="card" id="card-3">
+                <div class="card" id="card-4">
                     THANK YOU!
                 </div>
             </div>

@@ -1,3 +1,4 @@
+
 #jumbotron {
     height: 100px;
     font-size: 50px;
@@ -9,11 +10,21 @@
 
 }
 
+.current-weather {
+    font-weight: bold;
+}
+
 #card-1 {
     background-color: whitesmoke;
+    padding: 15px;
     margin-top: 10px;
     margin-bottom: 10px;
     float: left;
+}
+
+.city-buttons {
+    margin-bottom: 10px;
+    ;
 }
 
 #card-body-1 {
@@ -22,12 +33,20 @@
 
 #card-2 {
     background-color: whitesmoke;
+    
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 20px;
 }
 
 #card-3 {
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#card-4 {
     background-color: whitesmoke;
     margin-top: 10px;
     margin-bottom: 10px;
