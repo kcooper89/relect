@@ -65,10 +65,10 @@ $( document ).ready(function() {
             method: 'get',
             url: forecastUrl,
         }).then(function(response) {
-            document.getElementById('forecast').innerHTML = ""; // removes old forecasts
+            document.getElementById('forecast').innerHTML = ""; 
 
             for (var i = 0; i < response.list.length; i += 8) {
-                //console.log(response.list[i]); // add the data to the html
+                
                 $('#forecast').append(`
                     <div class="col-xs-12 col-md-6 col-lg-4 form-5-day form-group">
                         <div class="card forecast-item">
@@ -90,22 +90,6 @@ $( document ).ready(function() {
             }
         });
     });
-    
-    //function uvIndex (lat,lon){
-
-    //$.ajax({
-       // type: “GET”,
-        //url: “http://api.openweathermap.org/data/2.5/uvi?appid=7ba67ac190f85fdba2e2dc6b9d32e93c&lat=” + lat + “&lon=” + lon,
-        //dataType: “json”,
-
-    
-
-    //inside function 
-    //if/else statment. 
-    //<3 btn-success. 
-    //<7 btn warning
-    //else btn danger 
-    //append to the card 
     
 
     $('.city-buttons').click(function(event) {
