@@ -15,7 +15,30 @@ $( document ).ready(function() {
             url: url,
         })
             .then(function(json) {
-                
+            
+                var UVurl = 'http://api.openweathermap.org/data/2.5/uvi?appid=' + appID + '&lat=' + json.coord.lat + '&lon=' + json.coord.lon;
+                $.ajax({
+                    method: 'get',
+                    url: UVurl,
+                }).then(function(data) {
+                    var uvIndex = data.value;
+                    /// add the uv index to the html
+                    $("#UVindex").html(uvIndex);
+                    if (uvIndex < 3) {
+                        $('#UVindex').addClass('alert alert-success');
+                        $('#UVindex').removeClass('alert-warning');
+                        $('#UVindex').removeClass('alert alert-danger');
+                    } else if (uvIndex < 7) {
+                        $('#UVindex').addClass('alert alert-warning');
+                        $('#UVindex').removeClass('alert-success');
+                        $('#UVindex').removeClass('alert alert-danger');
+                    } else {
+                        $('#UVindex').addClass('alert alert-danger');
+                        $('#UVindex').removeClass('alert-success');
+                        $('#UVindex').removeClass('alert alert-warning');
+                    }
+                });
+
                 $("#city").html(json.name);
                 $("#main_weather").html(json.weather[0].main);
                 $("#description_weather").html(json.weather[0].description);
@@ -27,6 +50,17 @@ $( document ).ready(function() {
 
         var forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + appID + '&units=imperial';
 
+        var weekdays = [
+            'Sunday',
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
+
+        ];
+
         $.ajax({
             method: 'get',
             url: forecastUrl,
@@ -34,16 +68,17 @@ $( document ).ready(function() {
             document.getElementById('forecast').innerHTML = ""; // removes old forecasts
 
             for (var i = 0; i < response.list.length; i += 8) {
-                console.log(response.list[i]); // add the data to the html
+                //console.log(response.list[i]); // add the data to the html
                 $('#forecast').append(`
-                    <div class="col-xs-12 col-md-2 col-lg-3 form-5-day">
+                    <div class="col-xs-12 col-md-6 col-lg-4 form-5-day form-group">
                         <div class="card forecast-item">
                             <div class="card-body">
                             
-                                <p>Date: ${response.list[i].dt_txt}</p>
+                                <p>Day: ${weekdays[moment(response.list[i].dt_txt).day()]}</p>
                                 <img src="http://openweathermap.org/img/w/${response.list[i].weather[0].icon}.png" />
                                 <p>Temp: ${response.list[i].main.temp}</p>
                                 <p>Humidity: ${response.list[i].main.humidity}</p>
+                                
                                 
                             </div>
                         </div>
@@ -55,10 +90,27 @@ $( document ).ready(function() {
             }
         });
     });
+    
+    //function uvIndex (lat,lon){
+
+    //$.ajax({
+       // type: “GET”,
+        //url: “http://api.openweathermap.org/data/2.5/uvi?appid=7ba67ac190f85fdba2e2dc6b9d32e93c&lat=” + lat + “&lon=” + lon,
+        //dataType: “json”,
+
+    
+
+    //inside function 
+    //if/else statment. 
+    //<3 btn-success. 
+    //<7 btn warning
+    //else btn danger 
+    //append to the card 
+    
 
     $('.city-buttons').click(function(event) {
         $('input[name="city"]').val(event.target.value);
         $('form').submit();
     });
-    
+
 });
