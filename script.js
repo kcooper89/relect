@@ -8,7 +8,7 @@ $( document ).ready(function() {
         var city = event.target.city.value;
 
         // ajax request
-        var url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + appID + '&units=imperial';
+        var url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + appID + '&units=imperial';
 
         $.ajax({
             method: 'get',
@@ -16,7 +16,7 @@ $( document ).ready(function() {
         })
             .then(function(json) {
             
-                var UVurl = 'http://api.openweathermap.org/data/2.5/uvi?appid=' + appID + '&lat=' + json.coord.lat + '&lon=' + json.coord.lon;
+                var UVurl = 'https://api.openweathermap.org/data/2.5/uvi?appid=' + appID + '&lat=' + json.coord.lat + '&lon=' + json.coord.lon;
                 $.ajax({
                     method: 'get',
                     url: UVurl,
@@ -42,13 +42,13 @@ $( document ).ready(function() {
                 $("#city").html(json.name);
                 $("#main_weather").html(json.weather[0].main);
                 $("#description_weather").html(json.weather[0].description);
-                $("#weather_image").attr("src", "http://openweathermap.org/img/w/" + json.weather[0].icon + ".png");
+                $("#weather_image").attr("src", "https://openweathermap.org/img/w/" + json.weather[0].icon + ".png");
                 $("#temperature").html(json.main.temp);
                 $("#pressure").html(json.main.pressure);
                 $("#humidity").html(json.main.humidity);
             });
 
-        var forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + appID + '&units=imperial';
+        var forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + appID + '&units=imperial';
 
         var weekdays = [
             'Sunday',
@@ -75,7 +75,7 @@ $( document ).ready(function() {
                             <div class="card-body">
                             
                                 <p>Day: ${weekdays[moment(response.list[i].dt_txt).day()]}</p>
-                                <img src="http://openweathermap.org/img/w/${response.list[i].weather[0].icon}.png" />
+                                <img src='https://openweathermap.org/img/w/${response.list[i].weather[0].icon}.png' />
                                 <p>Temp: ${response.list[i].main.temp}</p>
                                 <p>Humidity: ${response.list[i].main.humidity}</p>
                                 
